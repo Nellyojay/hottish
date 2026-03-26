@@ -4,6 +4,7 @@ import { useApp, type Post } from '../context/AppContext';
 import { Heart, MessageCircle, Share2, Lock, DollarSign, Send } from 'lucide-react';
 import { motion } from 'motion/react';
 import Navigation from '../components/Navigation';
+import CommentsSection from '../components/CommentsSection';
 import {
   Dialog,
   DialogContent,
@@ -279,6 +280,7 @@ export default function HomePage() {
                         )}
                       </div>
                     </div>
+                    <CommentsSection postId={post.id} showPostPreview={false} maxHeightClass="max-h-44" className="mt-3" />
                   </motion.div>
                 );
               })}
@@ -364,6 +366,7 @@ export default function HomePage() {
                       Message
                     </Button>
                   </div>
+                  <CommentsSection postId={post.id} showPostPreview={false} maxHeightClass="max-h-44" className="mt-3" />
                 </motion.div>
               );
             })}
