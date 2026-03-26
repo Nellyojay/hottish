@@ -224,7 +224,6 @@ export default function KanbanBoard() {
     setColumns((prevColumns) => {
       const newColumns = [...prevColumns];
       let task: Task | undefined;
-      let fromColumnIndex = -1;
 
       // Find and remove task from source column
       for (let i = 0; i < newColumns.length; i++) {
@@ -232,7 +231,6 @@ export default function KanbanBoard() {
         if (taskIndex !== -1) {
           task = newColumns[i].tasks[taskIndex];
           newColumns[i].tasks.splice(taskIndex, 1);
-          fromColumnIndex = i;
           break;
         }
       }
