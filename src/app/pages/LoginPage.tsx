@@ -33,7 +33,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-foreground flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 py-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export default function LoginPage() {
               <div className="w-full border-t border-gray-700" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-[#0F0F14] text-gray-400">Or continue with email</span>
+              <span className="p-2 rounded-lg bg-[#0F0F14] text-gray-400">Or continue with email</span>
             </div>
           </div>
 

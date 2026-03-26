@@ -49,7 +49,7 @@ export default function CreatorDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-white pb-20 md:pb-8">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-8">
       <Navigation />
 
       <div className="max-w-4xl mx-auto px-4 pt-20 md:pt-24">

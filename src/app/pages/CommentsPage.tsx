@@ -19,7 +19,7 @@ export default function CommentsPage() {
 
   if (!currentUser) {
     return (
-      <div className="min-h-screen bg-[#0F0F14] text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <p>Redirecting...</p>
       </div>
     );
@@ -28,7 +28,7 @@ export default function CommentsPage() {
   const post = posts.find(p => p.id === postId);
   if (!post) {
     return (
-      <div className="min-h-screen bg-[#0F0F14] text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <p className="text-gray-400">Post not found</p>
       </div>
     );
@@ -92,7 +92,7 @@ export default function CommentsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-white pb-24 md:pb-8">
+    <div className="min-h-screen bg-background text-foreground pb-24 md:pb-8">
       <Navigation />
 
       {/* Header */}
@@ -174,7 +174,6 @@ export default function CommentsPage() {
                 placeholder="Add a comment..."
                 rows={1}
                 className="flex-1 bg-transparent border-none outline-none resize-none text-sm"
-                style={{ maxHeight: '100px' }}
               />
               <button
                 title='send'

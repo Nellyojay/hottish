@@ -24,8 +24,8 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-border">
-        <div className="max-w-7xl mx-auto w-full px-4 py-3 flex items-center justify-between">
+      <nav className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-3xl border-b border-border">
+        <div className="max-w-6xl mx-auto w-full px-4 py-3 flex items-center justify-between">
           <Link to="/home">
             <h1 className="bg-linear-to-r from-[#FF2D8D] to-[#7B3FF2] bg-clip-text text-transparent">
               FanVault
@@ -83,13 +83,13 @@ export default function Navigation() {
                 />
               </Button>
               {showMenu && (
-                <div className="absolute right-0 mt-2 w-48 bg-card rounded-lg border border-border shadow-lg py-2">
+                <div className="absolute right-0 mt-2 w-48 bg-background rounded-lg border border-border shadow-lg py-2">
                   <Link to={`/creator/${currentUser.id}`} onClick={() => setShowMenu(false)}>
                     <button className="w-full px-4 py-2 text-left hover:bg-accent transition-colors">
                       Profile
                     </button>
                   </Link>
-                  {currentUser.isCreator && (
+                  {true && (
                     <Link to="/dashboard" onClick={() => setShowMenu(false)}>
                       <button className="w-full px-4 py-2 text-left hover:bg-accent transition-colors">
                         Dashboard
@@ -173,7 +173,7 @@ export default function Navigation() {
       <Sheet open={showMobileMenu} onOpenChange={setShowMobileMenu}>
         <SheetContent
           side="right"
-          className="bg-card border-l border-border w-[280px]"
+          className="bg-background text-foreground border-l border-border w-70"
         >
           <SheetHeader className="border-b border-border pb-4">
             <SheetTitle className="text-foreground">

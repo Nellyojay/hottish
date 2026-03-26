@@ -10,7 +10,7 @@ export default function LandingPage() {
   const featuredPosts = posts.slice(0, 6);
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-[#FF2D8D]/20 via-[#7B3FF2]/20 to-transparent" />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Heart, MessageCircle, UserPlus, DollarSign } from 'lucide-react';
@@ -6,7 +6,7 @@ import { motion } from 'motion/react';
 import Navigation from '../components/Navigation';
 
 export default function NotificationsPage() {
-  const { currentUser, notifications, markNotificationAsRead } = useApp();
+  const { currentUser, markNotificationAsRead } = useApp();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function NotificationsPage() {
 
   if (!currentUser) {
     return (
-      <div className="min-h-screen bg-[#0F0F14] text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <p>Redirecting...</p>
       </div>
     );
@@ -123,7 +123,7 @@ export default function NotificationsPage() {
   const unreadCount = mockNotifications.filter(n => !n.read).length;
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-white pb-20 md:pb-8">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-8">
       <Navigation />
 
       <div className="max-w-2xl mx-auto px-4 pt-20 md:pt-24">
@@ -150,7 +150,7 @@ export default function NotificationsPage() {
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 onClick={() => handleNotificationClick(notification)}
                 className={`flex items-start gap-4 p-4 rounded-xl border transition-all cursor-pointer ${notification.read
-                  ? 'bg-white/[0.02] border-white/5 hover:border-white/10'
+                  ? 'bg-white/2 border-white/5 hover:border-white/10'
                   : 'bg-linear-to-br from-white/10 to-white/5 border-[#FF2D8D]/30 hover:border-[#FF2D8D]/50'
                   }`}
               >

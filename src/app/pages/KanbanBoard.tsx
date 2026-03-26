@@ -35,7 +35,7 @@ interface Column {
 
 const ItemType = 'TASK';
 
-function TaskCard({ task, columnId, moveTask }: { task: Task; columnId: string; moveTask: (taskId: string, toColumn: string) => void }) {
+function TaskCard({ task, columnId }: { task: Task; columnId: string; moveTask: (taskId: string, toColumn: string) => void }) {
   const [{ isDragging }, drag] = useDrag({
     type: ItemType,
     item: { id: task.id, fromColumn: columnId },
@@ -56,7 +56,7 @@ function TaskCard({ task, columnId, moveTask }: { task: Task; columnId: string; 
       layout
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: isDragging ? 0.5 : 1, y: 0 }}
-      className="bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-lg p-4 border border-white/10 cursor-move hover:border-[#FF2D8D]/50 transition-all mb-3"
+      className="bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-lg p-4 border border-white/10 cursor-move hover:border-[#FF2D8D]/50 transition-all mb-3"
     >
       <div className="flex items-start justify-between mb-2">
         <h4 className="text-sm flex-1">{task.title}</h4>
@@ -90,7 +90,7 @@ function KanbanColumn({ column, moveTask }: { column: Column; moveTask: (taskId:
 
   return (
     <div ref={drop as any} className="shrink-0 w-80">
-      <div className="bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl border border-white/10 p-4 h-full">
+      <div className="bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-xl border border-white/10 p-4 h-full">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <div className={`w-3 h-3 rounded-full ${column.color}`} />
@@ -271,7 +271,7 @@ export default function KanbanBoard() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="min-h-screen bg-[#0F0F14] text-white pb-20 md:pb-8">
+      <div className="min-h-screen bg-background text-foreground pb-20 md:pb-8">
         <Navigation />
 
         <div className="px-4 pt-20 md:pt-24">

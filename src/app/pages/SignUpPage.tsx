@@ -64,7 +64,7 @@ export default function SignUpPage() {
           <p className="text-muted-foreground">Create your account</p>
         </div>
 
-        <div className="bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+        <div className="bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
           {/* Social Login */}
           <div className="space-y-3 mb-6">
             <Button
@@ -90,7 +90,7 @@ export default function SignUpPage() {
               <div className="w-full border-t border-gray-700" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-[#0F0F14] text-gray-400">Or sign up with email</span>
+              <span className="p-2 rounded-lg bg-[#0F0F14] text-gray-400">Or sign up with email</span>
             </div>
           </div>
 

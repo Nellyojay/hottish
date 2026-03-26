@@ -24,7 +24,7 @@ export default function MessagesPage() {
 
   if (!currentUser) {
     return (
-      <div className="min-h-screen bg-[#0F0F14] text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <p>Redirecting...</p>
       </div>
     );
@@ -77,7 +77,7 @@ export default function MessagesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-white pb-20 md:pb-8">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-8">
       <Navigation />
 
       <div className="max-w-6xl mx-auto pt-20 md:pt-24 h-screen flex flex-col md:flex-row">

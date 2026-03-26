@@ -18,7 +18,7 @@ export default function SettingsPage() {
   if (!currentUser) return null;
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] pb-20 md:pb-0 md:pt-16">
+    <div className="min-h-screen bg-background text-foreground pb-20">
       <div className="max-w-2xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8 flex items-center gap-4">
@@ -26,12 +26,11 @@ export default function SettingsPage() {
             title='back'
             onClick={() => navigate(-1)}
           >
-            <ArrowLeft size={18} color='orange' />
+            <ArrowLeft size={18} className='fill-background' />
           </button>
-          <h1 className="bg-linear-to-r from-[#FF2D8D] to-[#7B3FF2] bg-clip-text text-transparent mb-2">
+          <h1 className="bg-linear-to-r from-[#FF2D8D] to-[#7B3FF2] bg-clip-text text-transparent">
             Settings
           </h1>
-          <p className="text-gray-400">Manage your account preferences</p>
         </div>
 
         {/* Account Section */}
@@ -90,8 +89,12 @@ export default function SettingsPage() {
                 <Switch
                   checked={theme === 'dark'}
                   onCheckedChange={(checked: any) => setTheme(checked ? 'dark' : 'light')}
-                  className={`${theme === 'dark' ? 'bg-white' : 'bg-amber-500'}`}
-                />
+                  className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors duration-200`}
+                >
+                  <span
+                    className={`absolute left-1 top-1 h-4 w-4 transform rounded-full bg-white transition-transform duration-200 ${theme === 'dark' ? 'translate-x-6' : 'translate-x-0'}`}
+                  />
+                </Switch>
               </div>
             </div>
           </div>

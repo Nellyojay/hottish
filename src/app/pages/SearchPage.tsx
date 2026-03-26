@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
-import { Search, User, Image, TrendingUp, X } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import Navigation from '../components/Navigation';
 import { Button } from '../components/ui/button';
@@ -20,7 +20,7 @@ export default function SearchPage() {
 
   if (!currentUser) {
     return (
-      <div className="min-h-screen bg-[#0F0F14] text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <p>Redirecting...</p>
       </div>
     );
@@ -37,7 +37,7 @@ export default function SearchPage() {
   );
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-white pb-20 md:pb-8">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-8">
       <Navigation />
 
       <div className="max-w-2xl mx-auto px-4 pt-20 md:pt-24">
@@ -55,7 +55,7 @@ export default function SearchPage() {
               placeholder="Search creators, posts..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-12 focus:outline-none focus:border-[#FF2D8D] transition-colors"
+              className="w-full bg-input border border-border rounded-full py-3 pl-12 pr-12 focus:outline-none focus:border-accent transition-colors"
             />
             {searchQuery && (
               <button
@@ -111,7 +111,7 @@ export default function SearchPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     onClick={() => navigate(`/creator/${creator.id}`)}
-                    className="flex items-center gap-4 p-4 bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl border border-white/10 hover:border-[#FF2D8D]/50 transition-colors cursor-pointer"
+                    className="flex items-center gap-4 p-4 bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-xl border border-white/10 hover:border-[#FF2D8D]/50 transition-colors cursor-pointer"
                   >
                     <img
                       src={creator.avatar}
@@ -143,7 +143,7 @@ export default function SearchPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   onClick={() => navigate(`/creator/${post.creatorId}`)}
-                  className="bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-[#FF2D8D]/50 transition-colors cursor-pointer"
+                  className="bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-[#FF2D8D]/50 transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-3 p-4">
                     <img

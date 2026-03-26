@@ -19,9 +19,7 @@ export default function HomePage() {
   const [selectedPost, setSelectedPost] = useState<any>(null);
   const [tipAmount, setTipAmount] = useState<number>(5);
   const [showTipModal, setShowTipModal] = useState(false);
-  const [selectedCreatorId, setSelectedCreatorId] = useState<string>('');
   const [activeTab, setActiveTab] = useState<'feed' | 'confessions'>('feed');
-  const [messageText, setMessageText] = useState('');
 
   useEffect(() => {
     if (!currentUser) {
@@ -84,15 +82,15 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-foreground pb-20 md:pb-8">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-8">
       <Navigation />
 
-      <div className="max-w-2xl mx-auto px-4 pt-20 md:pt-24">
+      <div className="max-w-2xl mx-auto px-4">
         {/* Tab Bar */}
-        <div className="flex gap-0 mb-6 border-b border-border sticky top-16 md:top-20 bg-background z-30">
+        <div className="flex gap-0 mb-4 sticky top-0 md:top-15 bg-background z-30">
           <button
             onClick={() => setActiveTab('feed')}
-            className={`flex-1 pb-3 px-4 transition-all relative ${activeTab === 'feed' ? 'text-foreground' : 'text-muted-foreground'
+            className={`flex-1 py-3 px-4 transition-all relative ${activeTab === 'feed' ? 'text-foreground' : 'text-muted-foreground'
               }`}
           >
             <span className="font-medium">Feed</span>
@@ -105,7 +103,7 @@ export default function HomePage() {
           </button>
           <button
             onClick={() => setActiveTab('confessions')}
-            className={`flex-1 pb-3 px-4 transition-all relative ${activeTab === 'confessions' ? 'text-foreground' : 'text-muted-foreground'
+            className={`flex-1 py-3 px-4 transition-all relative ${activeTab === 'confessions' ? 'text-foreground' : 'text-muted-foreground'
               }`}
           >
             <span className="font-medium">Confessions</span>
@@ -122,10 +120,10 @@ export default function HomePage() {
         {activeTab === 'feed' && (
           <>
             {/* Stories/Highlights Row */}
-            <div className="flex gap-4 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+            <div className="flex gap-4 overflow-x-auto pb-4 md:mt-20 mb-2 scrollbar-hide">
               {posts.slice(0, 5).map((post) => (
                 <div key={post.id} className="flex flex-col items-center gap-2 shrink-0">
-                  <div className="w-16 h-16 rounded-full p-[2px] bg-linear-to-br from-[#FF2D8D] to-[#7B3FF2]">
+                  <div className="w-16 h-16 rounded-full p-0.5 bg-linear-to-br from-[#FF2D8D] to-[#7B3FF2]">
                     <img
                       src={post.creator.avatar}
                       alt={post.creator.username}
@@ -150,7 +148,7 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10"
+                    className="bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700"
                   >
                     {/* Post Header */}
                     <div className="flex items-center justify-between p-4">
@@ -185,7 +183,7 @@ export default function HomePage() {
                           <img
                             src={post.imageUrl}
                             alt=""
-                            className="w-full aspect-square object-cover blur-2xl"
+                            className="w-full aspect-square object-cover blur-md"
                           />
                           <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent flex items-center justify-center cursor-pointer">
                             <div className="text-center">
@@ -291,7 +289,7 @@ export default function HomePage() {
         {/* Confessions Tab Content */}
         {activeTab === 'confessions' && (
           <div className="space-y-4">
-            <div className="bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl border border-white/10 p-4 mb-6">
+            <div className="bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-xl border border-white/10 p-4 md:mt-20 mb-6">
               <p className="text-sm text-gray-400 text-center">
                 🔒 Anonymous confessions • Share your thoughts freely
               </p>
@@ -306,7 +304,7 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl border border-white/10 p-5"
+                  className="bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-xl border border-white/10 p-5"
                 >
                   {/* Anonymous Header */}
                   <div className="flex items-center gap-3 mb-4">
@@ -315,23 +313,22 @@ export default function HomePage() {
                     </div>
                     <div>
                       <p className="font-medium text-[#FF2D8D]">{post.anonymousId}</p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-gray-500">
                         {new Date(post.timestamp).toLocaleDateString()} • Anonymous
                       </p>
                     </div>
                   </div>
 
                   {/* Post Content */}
-                  <p className="text-gray-200 mb-4 leading-relaxed">{post.content}</p>
+                  <p className="text-foreground mb-4 leading-relaxed">{post.content}</p>
 
                   {/* Post Actions */}
-                  <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                  <div className="flex items-center justify-between pt-3 border-t border-gray-600">
                     <div className="flex items-center gap-4">
                       <Button
                         variant="ghost"
                         size="sm"
-                        className={`transition-colors p-0 ${liked ? 'text-[#FF2D8D]' : 'text-gray-400 hover:text-[#FF2D8D]'
-                          }`}
+                        className={`transition-colors p-0 ${liked ? 'text-[#FF2D8D]' : 'text-gray-400 hover:text-[#FF2D8D]'}`}
                         onClick={() => toggleLike(post.id, true)}
                       >
                         <Heart className="w-5 h-5 mr-1" fill={liked ? '#FF2D8D' : 'none'} />
@@ -360,7 +357,7 @@ export default function HomePage() {
                       size="sm"
                       className="text-[#7B3FF2] hover:text-[#7B3FF2]/80 transition-colors"
                       onClick={() => {
-                        //handleMessageCreator(post.creatorId, post.content)
+                        handleMessageCreator(post.anonymousId, post.content)
                       }}
                     >
                       <Send className="w-4 h-4 mr-1" />

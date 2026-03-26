@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
-import { ArrowLeft, MessageCircle, Lock, Heart, Eye } from 'lucide-react';
+import { ArrowLeft, MessageCircle, Lock, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 import Navigation from '../components/Navigation';
 import { Button } from '../components/ui/button';
@@ -17,19 +17,19 @@ export default function CreatorProfilePage() {
 
   if (!creator) {
     return (
-      <div className="min-h-screen bg-[#0F0F14] text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <p>Creator not found</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-white pb-20 md:pb-8">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-8">
       <Navigation />
 
       <div className="max-w-4xl mx-auto">
         {/* Back Button */}
-        <div className="px-4 pt-20 md:pt-24 pb-4">
+        <div className="px-4 pt-4 md:pt-20 pb-4">
           <Button
             variant="ghost"
             size="sm"
@@ -129,7 +129,7 @@ export default function CreatorProfilePage() {
               className="bg-linear-to-br from-[#FF2D8D]/10 via-[#7B3FF2]/10 to-transparent backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8"
             >
               <h3 className="mb-4">What you'll get:</h3>
-              <ul className="space-y-2 text-gray-300">
+              <ul className="space-y-2 text-gray-500">
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#FF2D8D]" />
                   Full access to {creator.postCount}+ exclusive posts

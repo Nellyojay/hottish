@@ -24,7 +24,7 @@ export default function PaymentPage() {
 
   if (!creator) {
     return (
-      <div className="min-h-screen bg-[#0F0F14] text-white flex items-center justify-center">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <p>Creator not found</p>
       </div>
     );
@@ -45,7 +45,7 @@ export default function PaymentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0F14] text-white pb-20 md:pb-8">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-8">
       <Navigation />
 
       <div className="max-w-2xl mx-auto px-4 pt-20 md:pt-24">
@@ -67,7 +67,7 @@ export default function PaymentPage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Subscription Details */}
-            <div className="bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-fit">
+            <div className="bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-fit">
               <div className="flex items-center gap-4 mb-6">
                 <img
                   src={creator.avatar}
@@ -118,7 +118,7 @@ export default function PaymentPage() {
             </div>
 
             {/* Payment Form */}
-            <div className="bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+            <div className="bg-linear-to-br from-white/5 to-white/2 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <h3 className="mb-6">Payment Method</h3>
 
               {/* Payment Method Selection */}
@@ -227,7 +227,7 @@ export default function PaymentPage() {
                   </div>
                 )}
 
-                <div className="bg-gray-900/50 rounded-lg p-4 text-sm text-gray-400">
+                <div className="bg-gray-900/50 rounded-lg p-4 text-sm text-gray-500">
                   <p className="mb-2">Subscription Terms:</p>
                   <ul className="space-y-1 text-xs">
                     <li>• Subscription renews monthly on {new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString()}</li>
